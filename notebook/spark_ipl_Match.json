@@ -1,0 +1,384 @@
+{
+	"name": "spark_ipl_Match",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "synapsesprkpool",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "c547fd1b-7225-4440-ae65-b7000f493eae"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"e10e0328-0fa2-477d-a178-4479e13838bf": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "0",
+										"1": "335987",
+										"2": "Royal Challengers Bangalore",
+										"3": "Kolkata Knight Riders",
+										"4": "4/18/2008",
+										"5": "2008",
+										"6": "M Chinnaswamy Stadium",
+										"7": "Bangalore",
+										"8": "India",
+										"9": "Royal Challengers Bangalore",
+										"10": "Kolkata Knight Riders",
+										"11": "field",
+										"12": "runs",
+										"13": "Result",
+										"14": "BB McCullum",
+										"15": "140",
+										"16": "1"
+									},
+									{
+										"0": "1",
+										"1": "335988",
+										"2": "Kings XI Punjab",
+										"3": "Chennai Super Kings",
+										"4": "4/19/2008",
+										"5": "2008",
+										"6": "Punjab Cricket Association Stadium, Mohali",
+										"7": "Chandigarh",
+										"8": "India",
+										"9": "Chennai Super Kings",
+										"10": "Chennai Super Kings",
+										"11": "bat",
+										"12": "runs",
+										"13": "Result",
+										"14": "MEK Hussey",
+										"15": "33",
+										"16": "1"
+									},
+									{
+										"0": "2",
+										"1": "335989",
+										"2": "Delhi Daredevils",
+										"3": "Rajasthan Royals",
+										"4": "4/19/2008",
+										"5": "2008",
+										"6": "Feroz Shah Kotla",
+										"7": "Delhi",
+										"8": "India",
+										"9": "Rajasthan Royals",
+										"10": "Delhi Daredevils",
+										"11": "bat",
+										"12": "wickets",
+										"13": "Result",
+										"14": "MF Maharoof",
+										"15": "9",
+										"16": "1"
+									},
+									{
+										"0": "3",
+										"1": "335990",
+										"2": "Mumbai Indians",
+										"3": "Royal Challengers Bangalore",
+										"4": "4/20/2008",
+										"5": "2008",
+										"6": "Wankhede Stadium",
+										"7": "Mumbai",
+										"8": "India",
+										"9": "Mumbai Indians",
+										"10": "Royal Challengers Bangalore",
+										"11": "bat",
+										"12": "wickets",
+										"13": "Result",
+										"14": "MV Boucher",
+										"15": "5",
+										"16": "1"
+									},
+									{
+										"0": "4",
+										"1": "335991",
+										"2": "Kolkata Knight Riders",
+										"3": "Deccan Chargers",
+										"4": "4/20/2008",
+										"5": "2008",
+										"6": "Eden Gardens",
+										"7": "Kolkata",
+										"8": "India",
+										"9": "Deccan Chargers",
+										"10": "Kolkata Knight Riders",
+										"11": "bat",
+										"12": "wickets",
+										"13": "Result",
+										"14": "DJ Hussey",
+										"15": "5",
+										"16": "1"
+									},
+									{
+										"0": "5",
+										"1": "335992",
+										"2": "Rajasthan Royals",
+										"3": "Kings XI Punjab",
+										"4": "4/21/2008",
+										"5": "2008",
+										"6": "Sawai Mansingh Stadium",
+										"7": "Jaipur",
+										"8": "India",
+										"9": "Kings XI Punjab",
+										"10": "Rajasthan Royals",
+										"11": "bat",
+										"12": "wickets",
+										"13": "Result",
+										"14": "SR Watson",
+										"15": "6",
+										"16": "1"
+									},
+									{
+										"0": "6",
+										"1": "335993",
+										"2": "Deccan Chargers",
+										"3": "Delhi Daredevils",
+										"4": "4/22/2008",
+										"5": "2008",
+										"6": "Rajiv Gandhi International Stadium, Uppal",
+										"7": "Hyderabad",
+										"8": "India",
+										"9": "Deccan Chargers",
+										"10": "Delhi Daredevils",
+										"11": "bat",
+										"12": "wickets",
+										"13": "Result",
+										"14": "V Sehwag",
+										"15": "9",
+										"16": "1"
+									},
+									{
+										"0": "7",
+										"1": "335994",
+										"2": "Chennai Super Kings",
+										"3": "Mumbai Indians",
+										"4": "4/23/2008",
+										"5": "2008",
+										"6": "MA Chidambaram Stadium, Chepauk",
+										"7": "Chennai",
+										"8": "India",
+										"9": "Mumbai Indians",
+										"10": "Chennai Super Kings",
+										"11": "field",
+										"12": "runs",
+										"13": "Result",
+										"14": "ML Hayden",
+										"15": "6",
+										"16": "1"
+									},
+									{
+										"0": "8",
+										"1": "335995",
+										"2": "Deccan Chargers",
+										"3": "Rajasthan Royals",
+										"4": "4/24/2008",
+										"5": "2008",
+										"6": "Rajiv Gandhi International Stadium, Uppal",
+										"7": "Hyderabad",
+										"8": "India",
+										"9": "Rajasthan Royals",
+										"10": "Rajasthan Royals",
+										"11": "field",
+										"12": "wickets",
+										"13": "Result",
+										"14": "YK Pathan",
+										"15": "3",
+										"16": "1"
+									},
+									{
+										"0": "9",
+										"1": "335996",
+										"2": "Kings XI Punjab",
+										"3": "Mumbai Indians",
+										"4": "4/25/2008",
+										"5": "2008",
+										"6": "Punjab Cricket Association Stadium, Mohali",
+										"7": "Chandigarh",
+										"8": "India",
+										"9": "Mumbai Indians",
+										"10": "Kings XI Punjab",
+										"11": "field",
+										"12": "runs",
+										"13": "Result",
+										"14": "KC Sangakkara",
+										"15": "66",
+										"16": "1"
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "Match_SK",
+										"type": "string"
+									},
+									{
+										"key": "1",
+										"name": "match_id",
+										"type": "string"
+									},
+									{
+										"key": "2",
+										"name": "Team1",
+										"type": "string"
+									},
+									{
+										"key": "3",
+										"name": "Team2",
+										"type": "string"
+									},
+									{
+										"key": "4",
+										"name": "match_date",
+										"type": "string"
+									},
+									{
+										"key": "5",
+										"name": "Season_Year",
+										"type": "string"
+									},
+									{
+										"key": "6",
+										"name": "Venue_Name",
+										"type": "string"
+									},
+									{
+										"key": "7",
+										"name": "City_Name",
+										"type": "string"
+									},
+									{
+										"key": "8",
+										"name": "Country_Name",
+										"type": "string"
+									},
+									{
+										"key": "9",
+										"name": "Toss_Winner",
+										"type": "string"
+									},
+									{
+										"key": "10",
+										"name": "match_winner",
+										"type": "string"
+									},
+									{
+										"key": "11",
+										"name": "Toss_Name",
+										"type": "string"
+									},
+									{
+										"key": "12",
+										"name": "Win_Type",
+										"type": "string"
+									},
+									{
+										"key": "13",
+										"name": "Outcome_Type",
+										"type": "string"
+									},
+									{
+										"key": "14",
+										"name": "ManOfMach",
+										"type": "string"
+									},
+									{
+										"key": "15",
+										"name": "Win_Margin",
+										"type": "string"
+									},
+									{
+										"key": "16",
+										"name": "Country_id",
+										"type": "string"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "count",
+									"categoryFieldKeys": [
+										"0"
+									],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/c769b02e-ef7b-4671-a50e-c45ce7a257ae/resourceGroups/sudhakar-practice/providers/Microsoft.Synapse/workspaces/sudhakar-synapse/bigDataPools/synapsesprkpool",
+				"name": "synapsesprkpool",
+				"type": "Spark",
+				"endpoint": "https://sudhakar-synapse.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/synapsesprkpool",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.2",
+				"nodeCount": 3,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://sudhakargen2@sudhakarblobstrg2.dfs.core.windows.net/Match.csv', format='csv'\r\n",
+					"## If header exists uncomment line below\r\n",
+					", header=True\r\n",
+					")\r\n",
+					"display(df.limit(10))"
+				],
+				"attachments": null,
+				"execution_count": 5
+			}
+		]
+	}
+}

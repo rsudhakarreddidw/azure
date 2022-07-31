@@ -1,0 +1,18 @@
+{
+	"name": "sql_ipl_Team",
+	"properties": {
+		"description": "This script is used to read the data from the Team file.",
+		"content": {
+			"query": "SELECT *\nFROM OPENROWSET(\nBULK 'https://sudhakarblobstrg2.blob.core.windows.net/sudhakargen2/Team.csv',\nFORMAT = 'csv',\nparser_version = '2.0',\nHEADER_ROW = TRUE,\nfirstrow = 1) \nAS rows",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

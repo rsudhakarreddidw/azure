@@ -1,0 +1,17 @@
+{
+	"name": "sql_ipl_Player",
+	"properties": {
+		"content": {
+			"query": "select *\nfrom openrowset(\n        bulk 'https://sudhakarblobstrg2.blob.core.windows.net/sudhakargen2/Player.csv',\n        format = 'csv',\n        parser_version ='2.0',\n        HEADER_ROW = TRUE,\n        firstrow = 1\n    ) as rows",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
