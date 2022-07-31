@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "sudhakardwadf"
 		},
-		"sqldb_ipl_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'sqldb_ipl'"
-		},
 		"BLOBSTRG1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'BLOBSTRG1'"
+		},
+		"sqldb_ipl_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sqldb_ipl'"
 		},
 		"containerUri": {
 			"type": "string",
@@ -42,11 +42,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"sqldb_ipl_connectionString": {
-						"value": "[parameters('sqldb_ipl_connectionString')]"
-					},
 					"BLOBSTRG1_connectionString": {
 						"value": "[parameters('BLOBSTRG1_connectionString')]"
+					},
+					"sqldb_ipl_connectionString": {
+						"value": "[parameters('sqldb_ipl_connectionString')]"
 					}
 				}
 			},

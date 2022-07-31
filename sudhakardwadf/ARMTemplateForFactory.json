@@ -7,19 +7,119 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "sudhakardwadf"
 		},
-		"sqldb_ipl_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'sqldb_ipl'"
-		},
 		"BLOBSTRG1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'BLOBSTRG1'"
+		},
+		"sqldb_ipl_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sqldb_ipl'"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/STG_IPL_TEAM')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "sqldb_ipl",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Team_SK",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Team_Id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Team_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "LOAD_DATE",
+						"type": "smalldatetime",
+						"precision": 16,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "STG_IPL_TEAM"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/sqldb_ipl')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Team')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "BLOBSTRG1",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "BLOBSTRG"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Team.csv",
+						"folderPath": "ipl",
+						"container": "ipl"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Team_SK",
+						"type": "String"
+					},
+					{
+						"name": "Team_Id",
+						"type": "String"
+					},
+					{
+						"name": "Team_Name",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/BLOBSTRG1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/BLOBSTRG1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('BLOBSTRG1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/sqldb_ipl')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -34,17 +134,63 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/BLOBSTRG1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/ipl_teams')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "MappingDataFlow",
 				"typeProperties": {
-					"connectionString": "[parameters('BLOBSTRG1_connectionString')]"
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "Team",
+								"type": "DatasetReference"
+							},
+							"name": "teams"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "STG_IPL_TEAM",
+								"type": "DatasetReference"
+							},
+							"name": "stgteam"
+						}
+					],
+					"transformations": [],
+					"scriptLines": [
+						"source(output(",
+						"          Team_SK as string,",
+						"          Team_Id as string,",
+						"          Team_Name as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> teams",
+						"teams sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          Team_SK as integer,",
+						"          Team_Id as integer,",
+						"          Team_Name as string,",
+						"          LOAD_DATE as timestamp",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError') ~> stgteam"
+					]
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Team')]",
+				"[concat(variables('factoryId'), '/datasets/STG_IPL_TEAM')]"
+			]
 		}
 	]
 }

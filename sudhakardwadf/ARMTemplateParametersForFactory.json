@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "sudhakardwadf"
 		},
-		"sqldb_ipl_connectionString": {
+		"BLOBSTRG1_connectionString": {
 			"value": ""
 		},
-		"BLOBSTRG1_connectionString": {
+		"sqldb_ipl_connectionString": {
 			"value": ""
 		}
 	}
