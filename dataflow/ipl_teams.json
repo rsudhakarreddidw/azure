@@ -1,0 +1,53 @@
+{
+	"name": "ipl_teams",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Team",
+						"type": "DatasetReference"
+					},
+					"name": "teams"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "STG_IPL_TEAM",
+						"type": "DatasetReference"
+					},
+					"name": "stgteam"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Team_SK as string,",
+				"          Team_Id as string,",
+				"          Team_Name as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> teams",
+				"teams sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Team_SK as integer,",
+				"          Team_Id as integer,",
+				"          Team_Name as string,",
+				"          LOAD_DATE as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> stgteam"
+			]
+		}
+	}
+}
