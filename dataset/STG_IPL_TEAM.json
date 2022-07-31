@@ -1,0 +1,37 @@
+{
+	"name": "STG_IPL_TEAM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_ipl",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Team_SK",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Team_Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Team_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "LOAD_DATE",
+				"type": "smalldatetime",
+				"precision": 16,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "STG_IPL_TEAM"
+		}
+	}
+}

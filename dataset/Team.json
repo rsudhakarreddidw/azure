@@ -1,0 +1,40 @@
+{
+	"name": "Team",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "BLOBSTRG1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "BLOBSTRG"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Team.csv",
+				"folderPath": "ipl",
+				"container": "ipl"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Team_SK",
+				"type": "String"
+			},
+			{
+				"name": "Team_Id",
+				"type": "String"
+			},
+			{
+				"name": "Team_Name",
+				"type": "String"
+			}
+		]
+	}
+}
